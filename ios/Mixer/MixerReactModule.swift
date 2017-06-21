@@ -33,6 +33,11 @@ class MixerReactModule: NSObject {
 
 extension MixerReactModule: RCTBridgeDelegate {
     func sourceURL(for bridge: RCTBridge!) -> URL! {
+        let bundle: Bundle = Bundle.main
+        let configuration: String = (bundle.infoDictionary!["configuration"] as! String)
+        if configuration == "Release" {
+            return bundle.url(forResource: "main", withExtension: "jsbundle")
+        }
         return URL(string: "http://localhost:8081/index.ios.bundle?platform=ios")
     }
 }

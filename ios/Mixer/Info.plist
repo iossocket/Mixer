@@ -51,5 +51,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>configuration</key>
+	<string>${CONFIGURATION}</string>
 </dict>
 </plist>

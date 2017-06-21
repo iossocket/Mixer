@@ -127,6 +127,7 @@
 				306E1D321CE115FF00DD8143 /* Resources */,
 				5D63C463BDFCA9C641BFF0ED /* [CP] Embed Pods Frameworks */,
 				81F4E5548AE0A0D63B30AD3D /* [CP] Copy Pods Resources */,
+				D0E8D7611EFA6A0D00B639EE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,6 +231,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mixer/Pods-Mixer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D0E8D7611EFA6A0D00B639EE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../js/node_modules/react-native/packager/react-native-xcode.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
