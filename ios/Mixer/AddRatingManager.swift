@@ -10,9 +10,11 @@ import Foundation
 import React
 
 @objc(AddRatingManager)
-class AddRatingManager: NSObject {
+class AddRatingManager: RCTEventEmitter {
     
-    var bridge: RCTBridge!
+    override func supportedEvents() -> [String]! {
+        return ["AddRatingManagerEvent"]
+    }
     
     @objc func dismissPresentedViewController(_ reactTag: NSNumber) {
         DispatchQueue.main.async {
@@ -26,5 +28,6 @@ class AddRatingManager: NSObject {
     @objc func save(_ reactTag: NSNumber, rating: Int, forIdentifier identifier: Int) {
         UserDefaults.standard.set(rating, forKey: "currentRating-\(identifier)")
         dismissPresentedViewController(reactTag)
+        self.sendEvent(withName: "AddRatingManagerEvent", body: ["name": "saveRating", "message": rating, "extra": identifier])
     }
 }

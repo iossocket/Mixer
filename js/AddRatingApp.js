@@ -8,6 +8,7 @@ import ReactNative, {
   NavigatorIOS,
   TouchableOpacity,
   NativeModules,
+  NativeEventEmitter,
 } from 'react-native';
 const Rating = require('./Rate');
 
@@ -21,6 +22,21 @@ class AddRatingApp extends React.Component {
       identifier: props.identifier,
       currentRating: props.currentRating,
     }
+    this._subscription = null;
+  }
+
+  componentDidMount() {
+    const AddRatingManagerEvent = new NativeEventEmitter(AddRatingManager);
+    this._subscription = AddRatingManagerEvent.addListener(
+      'AddRatingManagerEvent',
+      (info) => {
+        console.log(JSON.stringify(info));
+      }
+    );
+  }
+
+  componentWillUnmount() {
+    this._subscription.remove();
   }
 
   onRatingSelected(selectedRating, navigator) {
@@ -29,25 +45,25 @@ class AddRatingApp extends React.Component {
     });
     navigator.replace({
       component: MyScene,
-          passProps: { 
-            currentRating: this.state.currentRating,
-            ratingSelectionHandler: this.onRatingSelected.bind(this)
-          },
-          title: 'Add Rating',
-          titleTextColor: 'white',
-          rightButtonTitle: 'Add',
-          onRightButtonPress: () => {
-            console.log('Save')
-            AddRatingManager.save(
-              this.props.rootTag,
-              this.state.currentRating,
-              this.state.identifier
-            );
-          },
-          barTintColor: '#25507b',
-          tintColor: 'white',
-          leftButtonTitle: 'Cancel',
-          onLeftButtonPress: () => AddRatingManager.dismissPresentedViewController(this.props.rootTag),
+        passProps: { 
+          currentRating: selectedRating,
+          ratingSelectionHandler: this.onRatingSelected.bind(this)
+        },
+        title: 'Add Rating',
+        titleTextColor: 'white',
+        rightButtonTitle: 'Add',
+        onRightButtonPress: () => {
+          console.log('Save')
+          AddRatingManager.save(
+            this.props.rootTag,
+            this.state.currentRating,
+            this.state.identifier
+          );
+        },
+        barTintColor: '#25507b',
+        tintColor: 'white',
+        leftButtonTitle: 'Cancel',
+        onLeftButtonPress: () => AddRatingManager.dismissPresentedViewController(this.props.rootTag),
     })
   }
 
