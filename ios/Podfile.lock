@@ -1,0 +1,46 @@
+PODS:
+  - React/Core (0.44.2):
+    - React/cxxreact
+    - Yoga (= 0.44.2.React)
+  - React/cxxreact (0.44.2):
+    - React/jschelpers
+  - React/DevSupport (0.44.2):
+    - React/Core
+    - React/RCTWebSocket
+  - React/jschelpers (0.44.2)
+  - React/RCTAnimation (0.44.2):
+    - React/Core
+  - React/RCTImage (0.44.2):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTNetwork (0.44.2):
+    - React/Core
+  - React/RCTText (0.44.2):
+    - React/Core
+  - React/RCTWebSocket (0.44.2):
+    - React/Core
+  - Yoga (0.44.2.React)
+
+DEPENDENCIES:
+  - React/Core (from `../js/node_modules/react-native`)
+  - React/DevSupport (from `../js/node_modules/react-native`)
+  - React/RCTAnimation (from `../js/node_modules/react-native`)
+  - React/RCTImage (from `../js/node_modules/react-native`)
+  - React/RCTNetwork (from `../js/node_modules/react-native`)
+  - React/RCTText (from `../js/node_modules/react-native`)
+  - React/RCTWebSocket (from `../js/node_modules/react-native`)
+  - Yoga (from `../js/node_modules/react-native/ReactCommon/yoga`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: "../js/node_modules/react-native"
+  Yoga:
+    :path: "../js/node_modules/react-native/ReactCommon/yoga"
+
+SPEC CHECKSUMS:
+  React: 68b26ea7726bf0731e954db0187fd8b749ec2863
+  Yoga: 735d941f871ac6c4853334c164c424e013a79a17
+
+PODFILE CHECKSUM: 67b9405bbfe6222354e7d7369aabf56b74820a1c
+
+COCOAPODS: 1.2.1
