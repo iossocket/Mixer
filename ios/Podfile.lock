@@ -33,14 +33,14 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   React:
-    :path: "../js/node_modules/react-native"
+    :path: ../js/node_modules/react-native
   Yoga:
-    :path: "../js/node_modules/react-native/ReactCommon/yoga"
+    :path: ../js/node_modules/react-native/ReactCommon/yoga
 
 SPEC CHECKSUMS:
   React: 68b26ea7726bf0731e954db0187fd8b749ec2863
   Yoga: 735d941f871ac6c4853334c164c424e013a79a17
 
-PODFILE CHECKSUM: 67b9405bbfe6222354e7d7369aabf56b74820a1c
+PODFILE CHECKSUM: 994ca0d917eb577310031fc4d2ec279fa9e4aa8a
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
